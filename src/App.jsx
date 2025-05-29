@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, BrowserRouter } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Sports from "./pages/Sports";
@@ -12,7 +12,7 @@ import Category from "./pages/category";
 
 function App() {
   return (
-    <Router basename="/News24-7hrs-kerala">
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -23,7 +23,7 @@ function App() {
         <Route path="/technology" element={<Technology />} />
         <Route path="/category" element={<Category />} />
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
 
