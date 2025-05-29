@@ -1,13 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-import Events from "./pages/Events";
 import Sports from "./pages/Sports";
 import Entertainment from "./pages/Entertainment";
 import Health from "./pages/Health";
-import Immigration from "./pages/Immigration";
 import Technology from "./pages/Technology";
-
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Politics from "./pages/politics";
@@ -22,10 +19,10 @@ function App() {
         <Route path="/sports" element={<Sports />} />
         <Route path="/entertainment" element={<Entertainment />} />
         <Route path="/health" element={<Health />} />
-       <Route path="/politics" element={<Politics />} />
+        <Route path="/politics" element={<Politics />} />
         <Route path="/technology" element={<Technology />} />
-        <Route path="/category" element= {<Category/>}/>
-      
+        <Route path="/category" element={<Category />} />
+
       </Routes>
     </Router>
   );

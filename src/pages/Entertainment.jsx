@@ -12,8 +12,7 @@ const Entertainment = () => {
     setError(null);
     try {
       const response = await axios.get(
-        "https://newsdata.io/api/1/news?apikey=pub_3671b7b6e8e6e2e3e6e2e3e6e2e3e6e2e3e6e2e3&category=entertainment&language=ml"
-      );
+'https://newsdata.io/api/1/latest?apikey=pub_1d96941b1d70474d92c8cb5f2107f429&country=in,br,fr&language=ml&category=entertainment'      );
       setData(response.data.results || []);
     } catch (err) {
       setError("Error fetching entertainment news");

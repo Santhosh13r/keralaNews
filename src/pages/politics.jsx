@@ -11,8 +11,7 @@ const Politics = () => {
     setError(null);
     try {
       const response = await axios.get(
-        "https://newsdata.io/api/1/latest?apikey=pub_e8140e97174a4115bc636c31a999c6bf&category=politics&language=ml"
-      );
+'https://newsdata.io/api/1/latest?apikey=pub_1d96941b1d70474d92c8cb5f2107f429&country=in&language=ml&category=politics'      );
       setData(response.data.results || []);
     } catch (err) {
       setError("Error fetching politics news");
