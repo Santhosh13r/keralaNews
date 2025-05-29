@@ -1,53 +1,62 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import '../index.css';
 
-const Entertainment = () => {
+const Politics = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [data, setData] = useState([]);
 
-  const fetchEntertainment = async () => {
+  const fetchPolitics = async () => {
     setLoading(true);
     setError(null);
     try {
       const response = await axios.get(
-        "https://newsdata.io/api/1/news?apikey=pub_3671b7b6e8e6e2e3e6e2e3e6e2e3e6e2e3e6e2e3&category=entertainment&language=ml"
+        "https://newsdata.io/api/1/latest?apikey=pub_e8140e97174a4115bc636c31a999c6bf&category=politics&language=ml"
       );
       setData(response.data.results || []);
     } catch (err) {
-      setError("Error fetching entertainment news");
+      setError("Error fetching politics news");
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchEntertainment();
+    fetchPolitics();
   }, []);
 
   return (
-    <div className="container my-5 py-5 ">
-      <h2 className="mb-4 p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">Entertainment News</h2>
-      {loading && <div className="text-center py-5">Loading...</div>}
+    <div className="container my-5 py-5">
+      <h2 className="mb-4 p-3 text-primary-emphasis bg-secondary-subtle border border-primary-subtle rounded-3">
+        <i className="fas fa-landmark me-2 text-danger"></i>
+        Politics News
+      </h2>
+      {loading && (
+        <div className="text-center py-5">
+          <div className="spinner-border text-danger" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+          <p className="mt-2">Loading politics news...</p>
+        </div>
+      )}
       {error && <div className="alert alert-danger">{error}</div>}
       <div className="row g-4">
         {data.length > 0 ? (
           data.map((item, idx) => (
             <div className="col-12 col-md-6 col-lg-4 d-flex" key={idx}>
-              <div className="card shadow rounded-4 border-0 d-flex flex-column h-100 w-100">
+              <div className="card shadow border-0 rounded-4 h-100 w-100 politics-card">
                 <div className="ratio ratio-16x9">
                   <img
                     src={item.image_url || "/fallback.jpg"}
                     className="card-img-top rounded-top-4 object-fit-cover"
                     alt={item.title}
                     style={{ objectFit: "cover", maxHeight: "220px" }}
-                    onError={(e) => (e.target.src = "/fallback.jpg")}
+                    onError={e => (e.target.src = "/fallback.jpg")}
                   />
                 </div>
-                <div className="card-body d-flex flex-column">
+                <div className="card-body d-flex flex-column bg-light">
                   <h5
-                    className="card-title mb-2"
+                    className="card-title mb-2 text-danger"
                     style={{
                       display: "-webkit-box",
                       WebkitLineClamp: 2,
@@ -73,16 +82,15 @@ const Entertainment = () => {
                       href={item.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn btn-outline-primary btn-sm w-100"
+                      className="btn btn-danger btn-sm w-100"
                     >
-                      Read More
+                      Read More <i className="fas fa-arrow-right ms-1"></i>
                     </a>
                   </div>
                 </div>
-                <div className="card-footer bg-transparent border-top-0">
+                <div className="card-footer bg-transparent border-0">
                   <small className="text-muted">
-                    {item.pubDate &&
-                      new Date(item.pubDate).toLocaleDateString()}
+                    {item.pubDate && new Date(item.pubDate).getDate()}/{new Date(item.pubDate).getMonth() + 1}/{new Date(item.pubDate).getFullYear()}
                   </small>
                 </div>
               </div>
@@ -91,7 +99,7 @@ const Entertainment = () => {
         ) : (
           !loading && (
             <div className="col-12 text-center py-5">
-              <p className="text-muted">No entertainment news found</p>
+              <p className="text-muted">No politics news found</p>
             </div>
           )
         )}
@@ -100,4 +108,4 @@ const Entertainment = () => {
   );
 };
 
-export default Entertainment;
+export default Politics;

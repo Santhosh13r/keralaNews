@@ -26,8 +26,8 @@ const Sports = () => {
   }, []);
 
   return (
-    <div className="container my-5">
-      <h2 className="mb-4 text-primary">Sports News</h2>
+    <div className="container my-5 py-5">
+      <h2 className="mb-4 p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">Sports News</h2>
       {loading && <div className="text-center py-5">Loading...</div>}
       {error && <div className="alert alert-danger">{error}</div>}
       <div className="row g-4">

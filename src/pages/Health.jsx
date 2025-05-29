@@ -11,7 +11,7 @@ const Health = () => {
     setError(null);
     try {
       const response = await axios.get(
-        "https://newsdata.io/api/1/latest?apikey=pub_e8140e97174a4115bc636c31a999c6bf&category=health&language=ml"
+        "https://newsdata.io/api/1/news?apikey=pub_3671b7b6e8e6e2e3e6e2e3e6e2e3e6e2e3e6e2e3&category=health&language=ml"
       );
       setData(response.data.results || []);
     } catch (err) {
@@ -26,8 +26,8 @@ const Health = () => {
   }, []);
 
   return (
-    <div className="container my-5">
-      <h2 className="mb-4 text-primary">Health News</h2>
+    <div className="container my-5 py-5">
+      <h2 className="mb-4 p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">Health News</h2>
       {loading && <div className="text-center py-5">Loading...</div>}
       {error && <div className="alert alert-danger">{error}</div>}
       <div className="row g-4">
