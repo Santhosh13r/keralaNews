@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import '../index.css';
 
 const Sports = () => {
   const [loading, setLoading] = useState(false);
@@ -11,7 +12,7 @@ const Sports = () => {
     setError(null);
     try {
       const response = await axios.get(
-'https://newsdata.io/api/1/latest?apikey=pub_1d96941b1d70474d92c8cb5f2107f429&country=in&language=ml&category=sports'      );
+        'https://newsdata.io/api/1/latest?apikey=pub_1d96941b1d70474d92c8cb5f2107f429&country=in&language=ml&category=sports');
       setData(response.data.results || []);
     } catch (err) {
       setError("Error fetching sports news");
