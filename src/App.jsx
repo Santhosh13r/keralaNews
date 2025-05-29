@@ -12,7 +12,7 @@ import Category from "./pages/category";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/News24-7hrs-kerala">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -22,10 +22,10 @@ function App() {
         <Route path="/politics" element={<Politics />} />
         <Route path="/technology" element={<Technology />} />
         <Route path="/category" element={<Category />} />
-
       </Routes>
     </Router>
   );
 }
 
 export default App;
+// filepath: c:\Users\santh\Desktop\newswebApp\topnewkl\src\App.jsx
