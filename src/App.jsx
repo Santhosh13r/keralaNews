@@ -12,7 +12,7 @@ import Category from "./pages/category";
 
 function App() {
   return (
-    <HashRouter basename={import.meta.env.BASE_URL}>
+    <HashRouter>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
