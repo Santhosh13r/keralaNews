@@ -12,7 +12,7 @@ import Category from "./pages/category";
 
 function App() {
   return (
-    <HashRouter>
+    <Router basename="/keralaNews/">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -23,7 +23,7 @@ function App() {
         <Route path="/technology" element={<Technology />} />
         <Route path="/category" element={<Category />} />
       </Routes>
-    </HashRouter>
+    </Router>
   );
 }
 

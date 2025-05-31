@@ -14,17 +14,57 @@ const CarouselComponent = () => {
         </div>
 
         <div className="carousel-inner">
-          <div className="carousel-item active">
-            <img className="d-block w-100" src="src\assets\SratImg.png" alt="First slide" />
+          <div className="carousel-item active position-relative">
+            <img className="d-block w-100" src="/keralaNews/src/assets/SratImg.png" alt="Start" />
+            <span style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              fontSize: "4rem",
+              color: "#fff",
+              fontWeight: "bold",
+              textShadow: "2px 2px 8px #000"
+            }}>S</span>
           </div>
-          <div className="carousel-item">
-            <img className="d-block w-100" src="src/assets/Events.png" alt="Second slide" />
+          <div className="carousel-item position-relative">
+            <img className="d-block w-100" src="/keralaNews/src/assets/Events.png" alt="Events" />
+            <span style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              fontSize: "4rem",
+              color: "#fff",
+              fontWeight: "bold",
+              textShadow: "2px 2px 8px #000"
+            }}>E</span>
           </div>
-          <div className="carousel-item">
-            <img className="d-block w-100" src="src/assets/Tech.png" alt="Third slide" />
+          <div className="carousel-item position-relative">
+            <img className="d-block w-100" src="/keralaNews/src/assets/Tech.png" alt="Technology" />
+            <span style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              fontSize: "4rem",
+              color: "#fff",
+              fontWeight: "bold",
+              textShadow: "2px 2px 8px #000"
+            }}>T</span>
           </div>
-          <div className="carousel-item">
-            <img className="d-block w-100" src="src/assets/Enterinment.png" alt="Fourth slide" />
+          <div className="carousel-item position-relative">
+            <img className="d-block w-100" src="/keralaNews/src/assets/Enterinment.png" alt="Entertainment" />
+            <span style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              fontSize: "4rem",
+              color: "#fff",
+              fontWeight: "bold",
+              textShadow: "2px 2px 8px #000"
+            }}>N</span>
           </div>
         </div>
 
