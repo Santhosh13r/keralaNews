@@ -64,7 +64,7 @@ const CarouselComponent = () => {
               color: "#fff",
               fontWeight: "bold",
               textShadow: "2px 2px 8px #000"
-            }}>Enterinment News..</span>
+            }}>Enterinment</span>
           </div>
         </div>
 
