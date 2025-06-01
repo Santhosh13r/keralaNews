@@ -12,7 +12,7 @@ import Category from "./pages/category";
 
 function App() {
   return (
-    <BrowserRouter basename="/keralaNews/">
+    <BrowserRouter basename="/KeralaNews/">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
