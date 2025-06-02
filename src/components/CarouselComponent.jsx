@@ -25,7 +25,7 @@ const CarouselComponent = () => {
               color: "#fff",
               fontWeight: "bold",
               textShadow: "2px 2px 8px #000"
-            }}>Top 1 News Gather from the news update </span>
+            }}>Top 1 News  </span>
           </div>
           <div className="carousel-item position-relative">
             <img className="d-block w-100" src="keralaNews\src\assets\Events.png" alt="Events" />
