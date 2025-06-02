@@ -28,4 +28,3 @@ function App() {
 }
 
 export default App;
-// filepath: c:\Users\santh\Desktop\newswebApp\topnewkl\src\App.jsx
