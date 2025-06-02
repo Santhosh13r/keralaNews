@@ -8,7 +8,7 @@ const Navbar = () => {
       <div className="container-fluid mt-2 mb-2">
         <Link className="navbar-brand d-flex align-items-center" to="/">
           <img
-            src="/keralaNews/src/assets/logo.png"
+            src="src\assets\logo.png"
             alt="Logo"
             width="44"
             height="44"

@@ -15,7 +15,7 @@ const CarouselComponent = () => {
 
         <div className="carousel-inner">
           <div className="carousel-item active position-relative">
-            <img className="d-block w-100" src="/keralaNews/src/assets/SratImg.png" alt="Start" />
+            <img className="d-block w-100" src="src\assets\SratImg.png" alt="Start" />
             <span style={{
               position: "absolute",
               top: "50%",
@@ -25,10 +25,10 @@ const CarouselComponent = () => {
               color: "#fff",
               fontWeight: "bold",
               textShadow: "2px 2px 8px #000"
-            }}>S</span>
+            }}>Top 1 News Gather from the news update </span>
           </div>
           <div className="carousel-item position-relative">
-            <img className="d-block w-100" src="/keralaNews/src/assets/Events.png" alt="Events" />
+            <img className="d-block w-100" src="src\assets\Events.png" alt="Events" />
             <span style={{
               position: "absolute",
               top: "50%",
@@ -38,10 +38,10 @@ const CarouselComponent = () => {
               color: "#fff",
               fontWeight: "bold",
               textShadow: "2px 2px 8px #000"
-            }}>E</span>
+            }}>Events update</span>
           </div>
           <div className="carousel-item position-relative">
-            <img className="d-block w-100" src="/keralaNews/src/assets/Tech.png" alt="Technology" />
+            <img className="d-block w-100" src="src\assets\Tech.png" alt="Technology" />
             <span style={{
               position: "absolute",
               top: "50%",
@@ -51,10 +51,10 @@ const CarouselComponent = () => {
               color: "#fff",
               fontWeight: "bold",
               textShadow: "2px 2px 8px #000"
-            }}>T</span>
+            }}>Technology News</span>
           </div>
           <div className="carousel-item position-relative">
-            <img className="d-block w-100" src="/keralaNews/src/assets/Enterinment.png" alt="Entertainment" />
+            <img className="d-block w-100" src="src\assets\Enterinment.png" alt="Entertainment" />
             <span style={{
               position: "absolute",
               top: "50%",
@@ -64,7 +64,7 @@ const CarouselComponent = () => {
               color: "#fff",
               fontWeight: "bold",
               textShadow: "2px 2px 8px #000"
-            }}>E</span>
+            }}>Enterinment News</span>
           </div>
         </div>
 
