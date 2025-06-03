@@ -15,7 +15,7 @@ const CarouselComponent = () => {
 
         <div className="carousel-inner">
           <div className="carousel-item active position-relative">
-            <img className="d-block w-100" src="./assets/SratImg.png" alt="Start" />
+            <img className="d-block w-100" src="/keralaNews/assets/SratImg.png" alt="Start" />
             <span style={{
               position: "absolute",
               top: "50%",
@@ -28,7 +28,7 @@ const CarouselComponent = () => {
             }}>Top 1 News</span>
           </div>
           <div className="carousel-item position-relative">
-            <img className="d-block w-100" src="./assets/Events.png" alt="Events" />
+            <img className="d-block w-100" src="/keralaNews/assets/Events.png" alt="Events" />
             <span style={{
               position: "absolute",
               top: "50%",
@@ -41,7 +41,7 @@ const CarouselComponent = () => {
             }}>Events update</span>
           </div>
           <div className="carousel-item position-relative">
-            <img className="d-block w-100" src="./assets/Tech.png" alt="Technology" />
+            <img className="d-block w-100" src="/keralaNews/assets/Tech.png" alt="Technology" />
             <span style={{
               position: "absolute",
               top: "50%",
@@ -54,7 +54,7 @@ const CarouselComponent = () => {
             }}>Technology News</span>
           </div>
           <div className="carousel-item position-relative">
-            <img className="d-block w-100" src="./assets/Enterinment.png" alt="Entertainment" />
+            <img className="d-block w-100" src="/keralaNews/assets/Enterinment.png" alt="Entertainment" />
             <span style={{
               position: "absolute",
               top: "50%",
