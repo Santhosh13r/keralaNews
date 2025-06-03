@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Logo from "../assets/logo.png"; // Adjust the path as necessary
+import LogoImg from "../assets/logo.png"; // Adjust the path as necessary
 import "../index.css"; // Import your CSS file
 
 const Navbar = () => {
@@ -9,7 +9,7 @@ const Navbar = () => {
       <div className="container-fluid mt-2 mb-2">
         <Link className="navbar-brand d-flex align-items-center" to="/">
           <img
-            src={Logo}
+            src={LogoImg}
             alt="Logo"
             width="44"
             height="44"
