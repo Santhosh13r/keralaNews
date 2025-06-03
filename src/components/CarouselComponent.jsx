@@ -1,6 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../index.css'; 
+import '../index.css';
 
+// Import images from src/assets (case-sensitive)
+import SratImg from '../assets/SratImg.png';
+import EventsImg from '../assets/Events.png';
+import TechImg from '../assets/Tech.png';
+import EntertainmentImg from '../assets/Enterinment.png';
 
 const CarouselComponent = () => {
   return (
@@ -15,7 +20,7 @@ const CarouselComponent = () => {
 
         <div className="carousel-inner">
           <div className="carousel-item active position-relative">
-            <img className="d-block w-100" src="/keralaNews/assets/SratImg.png" alt="Start" />
+            <img className="d-block w-100" src={SratImg} alt="Start" />
             <span style={{
               position: "absolute",
               top: "50%",
@@ -28,7 +33,7 @@ const CarouselComponent = () => {
             }}>Top 1 News</span>
           </div>
           <div className="carousel-item position-relative">
-            <img className="d-block w-100" src="/keralaNews/assets/Events.png" alt="Events" />
+            <img className="d-block w-100" src={EventsImg} alt="Events" />
             <span style={{
               position: "absolute",
               top: "50%",
@@ -41,7 +46,7 @@ const CarouselComponent = () => {
             }}>Events update</span>
           </div>
           <div className="carousel-item position-relative">
-            <img className="d-block w-100" src="/keralaNews/assets/Tech.png" alt="Technology" />
+            <img className="d-block w-100" src={TechImg} alt="Technology" />
             <span style={{
               position: "absolute",
               top: "50%",
@@ -54,7 +59,7 @@ const CarouselComponent = () => {
             }}>Technology News</span>
           </div>
           <div className="carousel-item position-relative">
-            <img className="d-block w-100" src="/keralaNews/assets/Enterinment.png" alt="Entertainment" />
+            <img className="d-block w-100" src={EntertainmentImg} alt="Entertainment" />
             <span style={{
               position: "absolute",
               top: "50%",
