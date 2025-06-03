@@ -1,5 +1,5 @@
 import "../index.css";
-import LogoImg from "../assets/logo.png";
+import LogoImge from "../assets/logo.png";
 
 const Footer = () => {
   return (
@@ -11,7 +11,7 @@ const Footer = () => {
           <div className="col-12 col-md-3">
             <div className="d-flex align-items-center justify-content-center justify-content-md-start mb-3">
               <img
-                src={LogoImg}
+                src={LogoImge}
                 alt="Logo"
                 width="48"
                 height="48"
