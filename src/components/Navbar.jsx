@@ -65,6 +65,11 @@ const Navbar = () => {
                 Health
               </Link>
             </li>
+             <li className="nav-item">
+              <Link className="nav-link" to="/AdminPages">
+                Admin pages
+              </Link>
+            </li>
             
           </ul>
           <form className="d-flex me-4 " role="search">
