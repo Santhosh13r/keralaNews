@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, BrowserRouter } from "react-router-dom";
+import { BrowserRouter as  Routes, Route, BrowserRouter } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Sports from "./pages/Sports";
@@ -9,6 +9,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Politics from "./pages/politics";
 import Category from "./pages/category";
+import AdminPages from "./pages/AdminPages";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/politics" element={<Politics />} />
         <Route path="/technology" element={<Technology />} />
         <Route path="/category" element={<Category />} />
+        <Route path="/AdminPages" element={<AdminPages/>} />
       </Routes>
     </BrowserRouter>
   );
