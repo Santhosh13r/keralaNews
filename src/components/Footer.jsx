@@ -34,7 +34,7 @@ const Footer = () => {
             <h5 className="fw-semibold mb-3">Contact Us</h5>
             <ul className="list-unstyled small">
               <li className="mb-2"><i className="fas fa-envelope me-2"></i><a href="mailto:info@topnewskl.com" className="footer-link">info@topnewskl.com</a></li>
-              <li className="mb-2"><i className="fas fa-phone me-2"></i><a href="tel:+919876543210" className="footer-link">+91 93600-72547</a></li>
+              <li className="mb-2"><i className="fas fa-phone me-2"></i><a href="tel:+919876543210" className="footer-link">71556147150</a></li>
               <li><i className="fas fa-map-marker-alt me-2"></i>Maniyattukudi Asfa Building, IG Road, Calicut, Kerala, India</li>
             </ul>
           </div>
