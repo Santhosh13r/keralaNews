@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import CarouselComponent from "../components/CarouselComponent";
@@ -75,43 +76,57 @@ const HomePage = () => {
         <div className="row g-4">
           {data?.length > 0 ? (
             data.map((item, idx) => (
-              <div className="col-12 col-md-6 col-lg-4 d-flex" key={idx}>
-                <div className={`card shadow rounded-4 border-0 d-flex flex-column h-100 w-100${darkMode ? " bg-secondary text-light" : ""}`}>
-                  <div className="ratio ratio-16x9">
-                    <img
-                      src={item.image_url || "/fallback.jpg"}
-                      className="card-img-top rounded-top-4 object-fit-cover"
-                      alt={item.title}
-                      onError={(e) => {
-                        e.target.src = "/fallback.jpg";
-                      }}
-                    />
-                  </div>
-                  <div className="card-body d-flex flex-column">
-                    <h5 className="card-title line-clamp-2" style={{ WebkitLineClamp: 2 }}>
-                      {item.title}
-                    </h5>
-                    <p className="card-text text-muted small line-clamp-3 mb-3" style={{ WebkitLineClamp: 3 }}>
-                      {item.description || "No description available"}
-                    </p>
-                    <div className="mt-auto">
-                      <a
-                        href={item.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`btn btn-outline-primary btn-sm w-100${darkMode ? " border-light text-light" : ""}`}
-                      >
-                        Read More
-                      </a>
+              <React.Fragment key={idx}>
+                <div className="col-12 col-md-6 col-lg-4 d-flex">
+                  <div className={`card shadow rounded-4 border-0 d-flex flex-column h-100 w-100${darkMode ? " bg-secondary text-light" : ""}`}>
+                    <div className="ratio ratio-16x9">
+                      <img
+                        src={item.image_url || "/fallback.jpg"}
+                        className="card-img-top rounded-top-4 object-fit-cover"
+                        alt={item.title}
+                        onError={(e) => {
+                          e.target.src = "/fallback.jpg";
+                        }}
+                      />
+                    </div>
+                    <div className="card-body d-flex flex-column">
+                      <h5 className="card-title line-clamp-2" style={{ WebkitLineClamp: 2 }}>
+                        {item.title}
+                      </h5>
+                      <p className="card-text text-muted small line-clamp-3 mb-3" style={{ WebkitLineClamp: 3 }}>
+                        {item.description || "No description available"}
+                      </p>
+                      <div className="mt-auto">
+                        <Link
+                          to={`/news/${item.title.replace(/\s+/g, "-").toLowerCase()}`}
+                          state={item}
+                          className={`btn btn-outline-primary btn-sm w-100${darkMode ? " border-light text-light" : ""}`}
+                        >
+                          Read More
+                        </Link>
+                      </div>
+                    </div>
+                    <div className="card-footer bg-transparent border-top-0">
+                      <small className="text-muted">
+                        {item.pubDate && new Date(item.pubDate).toLocaleDateString()}
+                      </small>
                     </div>
                   </div>
-                  <div className="card-footer bg-transparent border-top-0">
-                    <small className="text-muted">
-                      {item.pubDate && new Date(item.pubDate).toLocaleDateString()}
-                    </small>
-                  </div>
                 </div>
-              </div>
+                {/* Insert ad after every 3 news cards */}
+                {(idx + 1) % 3 === 0 && (
+                  <div className="col-12" key={`ad-${idx}`}>
+                    <div className="my-3 text-center">
+                      {/* Example ad image, replace with your ad code or AdSense */}
+                      <img
+                        src="src\assets\Tech.png"
+                        alt="Advertisement"
+                        style={{ maxWidth: "100%", maxHeight: "120px", borderRadius: "12px" }}
+                      />
+                    </div>
+                  </div>
+                )}
+              </React.Fragment>
             ))
           ) : (
             !loading && (
