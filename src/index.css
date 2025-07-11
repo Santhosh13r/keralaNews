@@ -130,3 +130,18 @@
   filter: brightness(1.08) contrast(1.08);
 }
 
+.sliding-ad {
+  animation: slide-horizontal 8s linear infinite;
+}
+
+@keyframes slide-horizontal {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}

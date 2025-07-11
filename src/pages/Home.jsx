@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import CarouselComponent from "../components/CarouselComponent";
 import "../App.css";
+import Ads from "../components/Ads";
 
 const HomePage = () => {
   const [loading, setLoading] = useState(false);
@@ -118,11 +119,7 @@ const HomePage = () => {
                   <div className="col-12" key={`ad-${idx}`}>
                     <div className="my-3 text-center">
                       {/* Example ad image, replace with your ad code or AdSense */}
-                      <img
-                        src="src\assets\Tech.png"
-                        alt="Advertisement"
-                        style={{ maxWidth: "100%", maxHeight: "120px", borderRadius: "12px" }}
-                      />
+                       <Ads/>
                     </div>
                   </div>
                 )}
