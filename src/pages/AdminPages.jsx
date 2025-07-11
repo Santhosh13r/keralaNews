@@ -6,6 +6,7 @@ const AdminPages = () => {
   const [desc, setDesc] = useState("");
   const [image, setImage] = useState(null);
   const [previewImg, setPreviewImg] = useState(null);
+  const [contentType, setContentType] = useState("News"); // New state
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -16,7 +17,7 @@ const AdminPages = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     alert(
-      `Title: ${title}\nDescription: ${desc}\nImage: ${image ? image.name : "None"}`
+      `Type: ${contentType}\nTitle: ${title}\nDescription: ${desc}\nImage: ${image ? image.name : "None"}`
     );
     // Here you would handle uploading to your backend
   };
@@ -33,12 +34,24 @@ const AdminPages = () => {
                 width="48"
                 height="48"
                 className="mb-2"
-                style={{ borderRadius: "px", background: "#fff" }}
+                style={{ borderRadius: "8px", background: "#fff" }}
               />
               <h3 className="mb-0">Add News</h3>
             </div>
             <div className="card-body p-4">
               <form onSubmit={handleSubmit}>
+                <div className="mb-3">
+                  <label className="form-label fw-semibold">Content Type</label>
+                  <select
+                    className="form-select"
+                    value={contentType}
+                    onChange={(e) => setContentType(e.target.value)}
+                  >
+                    <option value="Ads">Ads</option>
+                    <option value="News">News</option>
+                    
+                  </select>
+                </div>
                 <div className="mb-3">
                   <label className="form-label fw-semibold">Title</label>
                   <input

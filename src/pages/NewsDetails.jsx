@@ -67,16 +67,6 @@ const NewsDetails = () => {
                     </>
                   )}
                 </small>
-                {news.link && (
-                  <a
-                    href={news.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-sm btn-outline-secondary"
-                  >
-                    Original Source <i className="fas fa-external-link-alt ms-1"></i>
-                  </a>
-                )}
               </div>
             </div>
           </div>
