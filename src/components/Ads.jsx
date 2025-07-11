@@ -1,11 +1,12 @@
 
-import '../index.css' // Create this CSS file for animation
+import '../index.css' 
+import adsimg from '../assets/SratImg.png'// Create this CSS file for animation
 
 const Ads = () => {
   return (
     <div className="my-3 text-center overflow-hidden" style={{ maxWidth: "728px", margin: "0 auto" }}>
       <img
-        src="src\assets\SratImg.png" // Replace with your ad image path
+        src={adsimg} // Replace with your ad image path
         alt="Advertisement"
         className="sliding-ad"
         style={{
