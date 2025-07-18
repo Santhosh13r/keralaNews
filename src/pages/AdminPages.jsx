@@ -14,13 +14,32 @@ const AdminPages = () => {
     setPreviewImg(file ? URL.createObjectURL(file) : null);
   };
 
-  const handleSubmit = (e) => {
+const handleSubmit = (e) => {
     e.preventDefault();
-    alert(
-      `Type: ${contentType}\nTitle: ${title}\nDescription: ${desc}\nImage: ${image ? image.name : "None"}`
-    );
-    // Here you would handle uploading to your backend
-  };
+
+    if (!title || !desc || !contentType) {
+      alert("Please fill in all fields.");
+    } else {
+      const data = {
+        title: title,
+        description: desc,
+        contentType: contentType,
+        images: previewImg  // optional, if you converted file to Base64
+      };
+
+      fetch("http://localhost:8082/news/post", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+      .then(res => res.json())
+      .then(data => alert("News submitted successfully"))
+      .catch(err => console.error(err));
+    }
+};
+
 
   return (
     <div className="container py-5">
