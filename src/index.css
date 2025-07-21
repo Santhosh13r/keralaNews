@@ -55,15 +55,13 @@
 
 /* Attractive logo style */
 .logo-attractive {
-    border-radius: 50%;
-    box-shadow: 0 2px 8px rgba(30, 144, 255, 0.18);
-    border: 2px solid #1976d2;
-    background: #fff;
-    transition: transform 0.25s, box-shadow 0.25s;
+   
+    mix-blend-mode: rgb(20, 19, 19);
+   
 }
 
 .logo-attractive:hover {
-    transform: scale(1.08) rotate(-6deg);
+  transform: scale(1.05);
     box-shadow: 0 4px 16px rgba(30, 144, 255, 0.28);
 }
 

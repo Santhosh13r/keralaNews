@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import LogoImg from '../assets/Navbarlogo.jpg'; 
+import LogoImg from '../assets/logo1.png'; 
 
 const AdminPages = () => {
   const [title, setTitle] = useState("");

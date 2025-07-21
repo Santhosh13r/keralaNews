@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import LogoImg from '../assets/Navbarlogo.jpg';
+import LogoImg from '../assets/logo1.png'; // Adjust the path as necessary
 import "../index.css"; // Import your CSS file
 
 const Navbar = () => {
