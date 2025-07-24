@@ -11,7 +11,7 @@ const Navbar = () => {
           <img
             src={LogoImg}
             alt="Logo"
-            width="44"
+         
             height="44"
             className="d-inline-block align-text-top me-2 logo-attractive"
           />
@@ -32,7 +32,8 @@ const Navbar = () => {
           <ul className="navbar-nav me-auto mb-2 mb-lg-0 mx-5 navbar1">
             <li className="nav-item">
               <Link className="nav-link active" aria-current="page" to="/">
-                Home
+                <i class="fa-solid fa-house px-0
+                 "></i>Home
               </Link>
             </li>
             <li className="nav-item">
@@ -67,7 +68,7 @@ const Navbar = () => {
             </li>
              <li className="nav-item">
               <Link className="nav-link" to="/AdminPages">
-                Admin pages
+                Admin 
               </Link>
             </li>
             

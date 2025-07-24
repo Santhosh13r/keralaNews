@@ -50,7 +50,7 @@ const handleSubmit = (e) => {
               <img
                 src={LogoImg}
                 alt="Logo"
-                width="48"
+               
                 height="48"
                 className="mb-2"
                 style={{ borderRadius: "8px", background: "#fff" }}

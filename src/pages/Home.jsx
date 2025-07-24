@@ -50,14 +50,6 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div className="container d-flex justify-content-end mt-3">
-        <button
-          className={`btn btn-${darkMode ? "light" : "dark"} btn-sm`}
-          onClick={handleToggleDarkMode}
-        >
-          {darkMode ? "Light Mode" : "Dark Mode"}
-        </button>
-      </div>
 
       <section className="container my-5 flex-grow-1">
         <h2 className="mb-4 text-primary border-bottom px-2">Top News</h2>
