@@ -33,13 +33,9 @@ const HomePage = () => {
   }, []);
 
   // Toggle dark mode
-  const handleToggleDarkMode = () => {
-    setDarkMode((prev) => !prev);
-    document.body.classList.toggle("dark-mode", !darkMode);
-  };
 
   return (
-    <div className={`d-flex flex-column min-vh-100${darkMode ? " bg-dark text-light" : ""}`}>
+    <div className={`d-flex flex-column min-vh-100`}>
       <Navbar />
       <div className="container-fluid">
         <div className="row">

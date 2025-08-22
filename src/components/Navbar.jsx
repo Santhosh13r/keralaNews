@@ -32,8 +32,7 @@ const Navbar = () => {
           <ul className="navbar-nav me-auto mb-2 mb-lg-0 mx-5 navbar1">
             <li className="nav-item">
               <Link className="nav-link active" aria-current="page" to="/">
-                <i class="fa-solid fa-house px-0
-                 "></i>Home
+                Home
               </Link>
             </li>
             <li className="nav-item">
