@@ -11,11 +11,20 @@ const Navbar = () => {
           <img
             src={LogoImg}
             alt="Logo"
-         
-            height="44"
-            className="d-inline-block align-text-top me-2 logo-attractive"
+            height="90" // Increased height for a bigger logo
+            style={{
+              width: "90px", // Increased width for a bigger logo
+              borderRadius: "16px",
+              boxShadow: "0 4px 16px rgba(30, 144, 255, 0.18)",
+              background: "#fff",
+              padding: "4px",
+              objectFit: "contain"
+            }}
+            className="d-inline-block align-text-top me-3 logo-attractive"
           />
-          TopNewsKL
+          <span style={{ fontSize: "2rem", fontWeight: "bold", color: "#0d6efd", letterSpacing: "1px" }}>
+            TopNewsKL
+          </span>
         </Link>
         <button
           className="navbar-toggler"

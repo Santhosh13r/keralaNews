@@ -4,41 +4,42 @@ import LogoImg from '../assets/logo1.png';
 const AdminPages = () => {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
-  const [image, setImage] = useState(null);
-  const [previewImg, setPreviewImg] = useState(null);
+  const [media, setMedia] = useState(null);
+  const [previewMedia, setPreviewMedia] = useState(null);
+  const [mediaType, setMediaType] = useState(""); // "image" or "video"
   const [contentType, setContentType] = useState("News"); // New state
 
-  const handleImageChange = (e) => {
+  const handleMediaChange = (e) => {
     const file = e.target.files[0];
-    setImage(file);
-    setPreviewImg(file ? URL.createObjectURL(file) : null);
+    if (!file) return;
+    setMedia(file);
+    const type = file.type.startsWith("video") ? "video" : "image";
+    setMediaType(type);
+    setPreviewMedia(URL.createObjectURL(file));
   };
 
 const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (!title || !desc || !contentType) {
-      alert("Please fill in all fields.");
-    } else {
-      const data = {
-        title: title,
-        description: desc,
-        contentType: contentType,
-        images: previewImg  // optional, if you converted file to Base64
-      };
-
-      fetch("http://localhost:8082/news/post", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-      .then(res => res.json())
-      .then(data => alert("News submitted successfully"))
-      .catch(err => console.error(err));
+    if (!title || !desc || !contentType || !media) {
+      alert("Please fill in all fields and upload an image or video.");
+      return;
     }
-};
+
+    // Use FormData for file upload
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("description", desc);
+    formData.append("contentType", contentType);
+    formData.append("media", media);
+
+    fetch("http://localhost:8082/news/post", {
+      method: "POST",
+      body: formData,
+    })
+      .then(res => res.json())
+      .then(data => alert("News/Ad submitted successfully"))
+      .catch(err => console.error(err));
+  };
 
 
   return (
@@ -55,7 +56,7 @@ const handleSubmit = (e) => {
                 className="mb-2"
                 style={{ borderRadius: "8px", background: "#fff" }}
               />
-              <h3 className="mb-0">Add News</h3>
+              <h3 className="mb-0">Add News / Ad</h3>
             </div>
             <div className="card-body p-4">
               <form onSubmit={handleSubmit}>
@@ -66,9 +67,8 @@ const handleSubmit = (e) => {
                     value={contentType}
                     onChange={(e) => setContentType(e.target.value)}
                   >
-                    <option value="Ads">Ads</option>
+                    <option value="Ads">Ad</option>
                     <option value="News">News</option>
-                    
                   </select>
                 </div>
                 <div className="mb-3">
@@ -92,25 +92,39 @@ const handleSubmit = (e) => {
                   />
                 </div>
                 <div className="mb-3">
-                  <label className="form-label fw-semibold">Image</label>
+                  <label className="form-label fw-semibold">Upload Image or Video</label>
                   <input
                     type="file"
-                    accept="image/*"
+                    accept="image/*,video/*"
                     className="form-control"
-                    onChange={handleImageChange}
+                    onChange={handleMediaChange}
                     required
                   />
-                  {previewImg && (
-                    <div className="mt-2 text-center">
-                      <img
-                        src={previewImg}
-                        alt="Preview"
-                        style={{
-                          maxWidth: "200px",
-                          maxHeight: "120px",
-                          borderRadius: "8px",
-                        }}
-                      />
+                  {previewMedia && (
+                    <div className="mt-3 text-center">
+                      {mediaType === "image" ? (
+                        <img
+                          src={previewMedia}
+                          alt="Preview"
+                          style={{
+                            maxWidth: "100%",
+                            maxHeight: "180px",
+                            borderRadius: "8px",
+                            boxShadow: "0 2px 12px rgba(0,0,0,0.08)"
+                          }}
+                        />
+                      ) : (
+                        <video
+                          src={previewMedia}
+                          controls
+                          style={{
+                            maxWidth: "100%",
+                            maxHeight: "180px",
+                            borderRadius: "8px",
+                            boxShadow: "0 2px 12px rgba(0,0,0,0.08)"
+                          }}
+                        />
+                      )}
                     </div>
                   )}
                 </div>

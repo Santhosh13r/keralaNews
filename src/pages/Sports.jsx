@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import '../index.css';
 
 const Sports = () => {
@@ -46,18 +47,26 @@ const Sports = () => {
                 </div>
                 <div className="card-body d-flex flex-column">
                   <h5 className="card-title">{item.title}</h5>
-                  <p className="card-text text-muted small mb-3">
+                  <p
+                    className="card-text text-muted small mb-3"
+                    style={{
+                      display: "-webkit-box",
+                      WebkitLineClamp: 3, // Show max 3 lines
+                      WebkitBoxOrient: "vertical",
+                      overflow: "hidden",
+                      minHeight: "60px"
+                    }}
+                  >
                     {item.description || "No description available"}
                   </p>
                   <div className="mt-auto">
-                    <a
-                      href={item.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <Link
+                      to={`/news/${item.title.replace(/\s+/g, "-").toLowerCase()}`}
+                      state={item}
                       className="btn btn-outline-primary btn-sm w-100"
                     >
                       Read More
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className="card-footer bg-transparent border-top-0">

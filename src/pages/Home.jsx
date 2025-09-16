@@ -31,6 +31,10 @@ const HomePage = () => {
   useEffect(() => {
     fetchNews();
   }, []);
+-
+  function click(){
+    
+  }
 
   // Toggle dark mode
 
@@ -79,7 +83,7 @@ const HomePage = () => {
                       />
                     </div>
                     <div className="card-body d-flex flex-column">
-                      <h5 className="card-title line-clamp-2" style={{ WebkitLineClamp: 2 }}>
+                      <h5 className="card-title line-clamp-2" style={{ WebkitLineClamp: 3 }}>
                         {item.title}
                       </h5>
                       <p className="card-text text-muted small line-clamp-3 mb-3" style={{ WebkitLineClamp: 3 }}>
