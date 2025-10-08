@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import LogoImg from '../assets/logo1.png'; // Adjust the path as necessary
-import "../index.css"; // Import your CSS file
+import LogoImg from '../assets/logo1.png';
+import "../index.css";
 
 const Navbar = () => {
   return (
@@ -11,19 +11,20 @@ const Navbar = () => {
           <img
             src={LogoImg}
             alt="Logo"
-            height="90" // Increased height for a bigger logo
+            height=""
             style={{
-              width: "90px", // Increased width for a bigger logo
-              borderRadius: "16px",
+              width: "80px",
+              borderRadius: "50%", // Make logo round
               boxShadow: "0 4px 16px rgba(30, 144, 255, 0.18)",
-              background: "#fff",
+              background: "#222121ff",
               padding: "4px",
-              objectFit: "contain"
+              objectFit: "cover", // Ensures round crop
+              border: "2px solid #035ee6ff"
             }}
             className="d-inline-block align-text-top me-3 logo-attractive"
           />
-          <span style={{ fontSize: "2rem", fontWeight: "bold", color: "#0d6efd", letterSpacing: "1px" }}>
-            TopNewsKL
+          <span style={{ fontSize: "1.5rem", fontWeight: "bold", color: "#000000ff", letterSpacing: "1px" }}>
+            Top 1 News
           </span>
         </Link>
         <button
@@ -32,49 +33,48 @@ const Navbar = () => {
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
-          aria-expanded="false"
+          aria-expanded="false" 
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0 mx-5 navbar1">
+          <ul className="navbar-nav ms-auto mb-2 mb-lg-0 gap-2">
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/">
+              <Link className="nav-link fw-semibold" aria-current="page" to="/">
                 Home
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/politics">
+              <Link className="nav-link fw-semibold" to="/politics">
                 Politics
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/sports">
+              <Link className="nav-link fw-semibold" to="/sports">
                 Sports
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/entertainment">
+              <Link className="nav-link fw-semibold" to="/entertainment">
                 Entertainment
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/technology">
+              <Link className="nav-link fw-semibold" to="/technology">
                 Technology
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/health">
+              <Link className="nav-link fw-semibold" to="/health">
                 Health
               </Link>
             </li>
-             <li className="nav-item">
-              <Link className="nav-link" to="/AdminPages">
-                Admin 
+            <li className="nav-item">
+              <Link className="nav-link fw-semibold" to="/AdManager">
+                Admin
               </Link>
             </li>
-            
           </ul>
         </div>
       </div>

@@ -68,9 +68,8 @@ const Technology = () => {
                   </p>
                   <div className="mt-auto">
                     <a
-                      href={item.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      to={'/news/'+item.title.replace(/\s+/g, '-').toLowerCase()}
+                      state={item}
                       className="btn btn-outline-primary btn-sm w-100"
                     >
                       Read More

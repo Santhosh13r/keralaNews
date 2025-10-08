@@ -11,7 +11,6 @@ const HomePage = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [data, setData] = useState([]);
-  const [darkMode, setDarkMode] = useState(false);
 
   const fetchNews = async () => {
     setLoading(true);
@@ -52,7 +51,7 @@ const HomePage = () => {
 
 
       <section className="container my-5 flex-grow-1">
-        <h2 className="mb-4 text-primary border-bottom px-2">Top News</h2>
+        <h2 className="mb-4 text-primary border-bottom px-2">Top 1 News</h2>
         {loading && (
           <div className="text-center py-5">
             <div className="spinner-border text-primary" role="status">
@@ -71,14 +70,14 @@ const HomePage = () => {
             data.map((item, idx) => (
               <React.Fragment key={idx}>
                 <div className="col-12 col-md-6 col-lg-4 d-flex">
-                  <div className={`card shadow rounded-4 border-0 d-flex flex-column h-100 w-100${darkMode ? " bg-secondary text-light" : ""}`}>
+                  <div className={`card shadow rounded-4 border-0 d-flex flex-column h-100 w-100`}>
                     <div className="ratio ratio-16x9">
                       <img
-                        src={item.image_url || "/fallback.jpg"}
+                        src={item.image_url || ""}
                         className="card-img-top rounded-top-4 object-fit-cover"
                         alt={item.title}
                         onError={(e) => {
-                          e.target.src = "/fallback.jpg";
+                          e.target.src = "";
                         }}
                       />
                     </div>
@@ -93,9 +92,8 @@ const HomePage = () => {
                         <Link
                           to={`/news/${item.title.replace(/\s+/g, "-").toLowerCase()}`}
                           state={item}
-                          className={`btn btn-outline-primary btn-sm w-100${darkMode ? " border-light text-light" : ""}`}
                         >
-                          Read More
+                        <button className="  btn btn-outline-primary btn-sm w-100">Read More</button>
                         </Link>
                       </div>
                     </div>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import '../index.css';
 
 const Entertainment = () => {
@@ -12,7 +13,8 @@ const Entertainment = () => {
     setError(null);
     try {
       const response = await axios.get(
-'https://newsdata.io/api/1/latest?apikey=pub_1d96941b1d70474d92c8cb5f2107f429&country=in,br,fr&language=ml&category=entertainment'      );
+        'https://newsdata.io/api/1/latest?apikey=pub_1d96941b1d70474d92c8cb5f2107f429&country=in,br,fr&language=ml&category=entertainment'
+      );
       setData(response.data.results || []);
     } catch (err) {
       setError("Error fetching entertainment news");
@@ -68,14 +70,13 @@ const Entertainment = () => {
                     {item.description || "No description available"}
                   </p>
                   <div className="mt-auto">
-                    <a
-                      href={item.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <Link
+                      to={`/news/${item.title.replace(/\s+/g, "-").toLowerCase()}`}
+                      state={item}
                       className="btn btn-outline-primary btn-sm w-100"
                     >
                       Read More
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className="card-footer bg-transparent border-top-0">

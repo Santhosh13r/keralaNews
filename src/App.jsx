@@ -8,7 +8,8 @@ import Technology from "./pages/Technology";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Politics from "./pages/politics";
-import AdminPages from "./pages/AdminPages";
+import AdManager from "./pages/AdManager";
+
 import NewsDetails from "./pages/NewsDetails";
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
         <Route path="/health" element={<Health />} />
         <Route path="/politics" element={<Politics />} />
         <Route path="/technology" element={<Technology />} />
-        <Route path="/AdminPages" element={<AdminPages/>} />
+        <Route path="/AdManager" element={<AdManager />} />
         <Route path="/news/:id" element={<NewsDetails />} />
       </Routes>
     </BrowserRouter>

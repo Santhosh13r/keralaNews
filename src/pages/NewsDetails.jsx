@@ -1,97 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import SidebarAds from "../components/SidebarAds";
 
 const NewsDetails = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const news = location.state;
 
-  if (!news) {
-    navigate("/");
-    return null;
-  }
+  useEffect(() => {
+    if (!news) {
+      navigate("/");
+    }
+  }, [news, navigate]);
 
-  // Left Sidebar Content
-  const leftContent = (
-    <div className="sticky-top" style={{ top: "90px" }}>
-      <div className="card shadow-sm border-0 mb-4">
-        <div className="card-body text-center p-3">
-          <h6 className="fw-bold mb-2 fs-6 text-primary">Featured Video</h6>
-          <video
-            src="/keralaNews/assets/sample-left-video.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            style={{
-              width: "100%",
-              maxWidth: "140px",
-              height: "180px",
-              objectFit: "cover",
-              borderRadius: "10px"
-            }}
-          />
-        </div>
-      </div>
-      <div className="card shadow-sm border-0">
-        <div className="card-body text-center p-3">
-          <h6 className="fw-bold mb-2 fs-6 text-primary">Ad</h6>
-          <img
-            src="/keralaNews/assets/sample-left-ad.jpg"
-            alt="Left Ad"
-            style={{
-              width: "100%",
-              maxWidth: "140px",
-              height: "180px",
-              objectFit: "cover",
-              borderRadius: "10px"
-            }}
-          />
-        </div>
-      </div>
-    </div>
-  );
-
-  // Right Sidebar Content
-  const rightContent = (
-    <div className="sticky-top" style={{ top: "90px" }}>
-      <div className="card shadow-sm border-0 mb-4">
-        <div className="card-body text-center p-3">
-          <h6 className="fw-bold mb-2 fs-6 text-primary">Ad</h6>
-          <img
-            src="/keralaNews/assets/sample-right-ad.jpg"
-            alt="Right Ad"
-            style={{
-              width: "100%",
-              maxWidth: "140px",
-              height: "180px",
-              objectFit: "cover",
-              borderRadius: "10px"
-            }}
-          />
-        </div>
-      </div>
-      <div className="card shadow-sm border-0">
-        <div className="card-body text-center p-3">
-          <h6 className="fw-bold mb-2 fs-6 text-primary">Watch Ad</h6>
-          <video
-            src="/keralaNews/assets/sample-right-video.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            style={{
-              width: "100%",
-              maxWidth: "140px",
-              height: "180px",
-              objectFit: "cover",
-              borderRadius: "10px"
-            }}
-          />
-        </div>
-      </div>
-    </div>
-  );
+  if (!news) return null;
 
   return (
     <div
@@ -103,64 +25,122 @@ const NewsDetails = () => {
     >
       <div className="row justify-content-center gx-4">
         {/* Left Sidebar */}
-        <aside className="d-none d-lg-block col-lg-2 px-0">{leftContent}</aside>
+        <aside className="d-none d-lg-block col-lg-2 px-0 mt-5">
+          <div
+            style={{
+              background: "#f6f9ff",
+              borderRadius: "14px",
+              padding: "1rem 0.5rem",
+              minHeight: "200px"
+            }}
+          >
+            <h6 className="text-center text-primary mb-3" style={{ fontWeight: 600 }}>
+              Sponsored (Left)
+            </h6>
+            <SidebarAds area="left" />
+          </div>
+        </aside>
 
         {/* Main Content */}
         <main className="col-12 col-lg-8 px-2 px-lg-4">
-          <button className="btn btn-outline-primary mb-4" onClick={() => navigate(-1)}>
-            <i className="fas fa-arrow-left me-2"></i>Back
-          </button>
-          <div
-            className="card shadow-lg border-0 rounded-4 mb-4"
+          {/* Center/Top Ads */}
+          <div className="mb-4 mt-5">
+            <SidebarAds area="center" />
+          </div>
+          <button
+            className="btn btn-outline-primary mb-4 rounded-pill px-4 py-2 shadow-sm"
+            onClick={() => navigate(-1)}
             style={{
-              borderLeft: "8px solid #0d6efd",
-              background: "#fff"
+              fontWeight: 600,
+              letterSpacing: "1px"
             }}
           >
-            <div className="ratio ratio-16x9 rounded-top-4 overflow-hidden">
+            <i className="fas fa-arrow-left me-2"></i>Back
+          </button>
+          {/* News Content */}
+          <section
+            style={{
+              background: "#fff",
+              borderRadius: "18px",
+              padding: "2rem",
+              marginBottom: "2rem",
+              boxShadow: "0 2px 12px rgba(0,0,0,0.04)"
+            }}
+          >
+            <div className="mb-4">
               <img
                 src={news.image_url || "/fallback.jpg"}
                 alt={news.title}
-                className="w-100 h-100 object-fit-cover"
-                style={{ objectFit: "cover" }}
+                style={{
+                  width: "100%",
+                  maxHeight: "400px",
+                  objectFit: "cover",
+                  borderRadius: "12px"
+                }}
               />
             </div>
-            <div className="card-body p-4">
-              <h1 className="card-title mb-3 text-primary fw-bold display-6">{news.title}</h1>
-              {news.author && (
-                <p className="mb-2 text-secondary fs-6">
-                  <i className="fas fa-user me-2"></i>
-                  <strong>By:</strong> {news.author}
-                </p>
-              )}
-              <p className="card-text fs-5" style={{ lineHeight: 1.7, textAlign: "justify" }}>
-                {news.description || "No description available"}
-              </p>
-              {news.content && (
-                <div className="mb-3">
-                  <h5 className="fw-semibold mt-4 fs-5">Full Story</h5>
-                  <div className="fs-6" style={{ lineHeight: 1.8, textAlign: "justify" }}>
-                    {news.content}
-                  </div>
-                </div>
-              )}
-              <div className="d-flex justify-content-between align-items-center mt-4">
-                <small className="text-muted fs-6">
-                  {news.pubDate && (
-                    <>
-                      <i className="far fa-calendar-alt me-1"></i>
-                      {new Date(news.pubDate).toLocaleDateString()}
-                    </>
-                  )}
-                </small>
+            <h1 className="mb-3 text-primary fw-bold" style={{ fontSize: "2.2rem" }}>
+              {news.title}
+            </h1>
+            {news.author && (
+              <div className="mb-2 text-secondary fs-6">
+                <i className="fas fa-user me-2"></i>
+                <strong>By:</strong> {news.author}
               </div>
+            )}
+            <div className="mb-3 text-muted" style={{ fontSize: "1.1rem" }}>
+              {news.pubDate && (
+                <>
+                  <i className="far fa-calendar-alt me-1"></i>
+                  {new Date(news.pubDate).toLocaleDateString()}
+                </>
+              )}
             </div>
-          </div>
+            <p
+              className="fs-5 mb-4"
+              style={{
+                lineHeight: 1.7,
+                textAlign: "justify"
+              }}
+            >
+              {news.description || "No description available"}
+            </p>
+            {news.content && (
+              <div className="mb-3">
+                <h5 className="fw-semibold mt-4 fs-5 text-primary">Full Story</h5>
+                <div
+                  className="fs-6"
+                  style={{
+                    lineHeight: 1.8,
+                    textAlign: "justify"
+                  }}
+                >
+                  {news.content}
+                </div>
+              </div>
+            )}
+          </section>
         </main>
 
         {/* Right Sidebar */}
-        <aside className="d-none d-lg-block col-lg-2 px-0">{rightContent}</aside>
+        <aside className="d-none d-lg-block col-lg-2 px-0 mt-5 pt-5">
+          <div
+            style={{
+              background: "#f6f9ff",
+              borderRadius: "14px",
+              padding: "1rem 0.5rem",
+              minHeight: "200px"
+            }}
+          >
+            <h6 className="text-center text-primary mb-3" style={{ fontWeight: 600 }}>
+              Sponsored (Right)
+            </h6>
+            <SidebarAds area="right" />
+          </div>
+        </aside>
       </div>
+      {/* Bottom Video Ads Area */}
+   
     </div>
   );
 };
