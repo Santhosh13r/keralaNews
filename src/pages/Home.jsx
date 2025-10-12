@@ -17,7 +17,8 @@ const HomePage = () => {
     setError(null);
     try {
       const response = await axios.get(
-'https://newsdata.io/api/1/latest?apikey=pub_1d96941b1d70474d92c8cb5f2107f429&country=au,in,de,ru&language=ml&category=environment,top,politics,health,education'      );
+        "https://newsdata.io/api/1/latest?apikey=pub_1d96941b1d70474d92c8cb5f2107f429&country=au,in,de,ru&language=ml&category=environment,top,politics,health,education"
+      );
       setData(response.data.results);
     } catch (error) {
       setError("Error fetching news");
@@ -30,28 +31,24 @@ const HomePage = () => {
   useEffect(() => {
     fetchNews();
   }, []);
--
-  function click(){
-    
-  }
-
-  // Toggle dark mode
 
   return (
-    <div className={`d-flex flex-column min-vh-100`}>
+    <div className="d-flex flex-column min-vh-100">
       <Navbar />
+
+      {/* 🧭 Top Carousel Section */}
       <div className="container-fluid">
         <div className="row">
           <div className="col-12 mt-5">
-           
             <CarouselComponent />
           </div>
         </div>
       </div>
 
-
+      {/* 📰 News Section */}
       <section className="container my-5 flex-grow-1">
-        <h2 className="mb-4 text-primary border-bottom px-2">Top 1 News</h2>
+        <h2 className="mb-4 text-primary border-bottom px-2">Top News</h2>
+
         {loading && (
           <div className="text-center py-5">
             <div className="spinner-border text-primary" role="status">
@@ -60,17 +57,20 @@ const HomePage = () => {
             <p className="mt-2">Loading news...</p>
           </div>
         )}
+
         {error && (
           <div className="alert alert-danger" role="alert">
             {error}
           </div>
         )}
+
         <div className="row g-4">
           {data?.length > 0 ? (
             data.map((item, idx) => (
               <React.Fragment key={idx}>
+                {/* 📰 News Card */}
                 <div className="col-12 col-md-6 col-lg-4 d-flex">
-                  <div className={`card shadow rounded-4 border-0 d-flex flex-column h-100 w-100`}>
+                  <div className="card shadow rounded-4 border-0 d-flex flex-column h-100 w-100">
                     <div className="ratio ratio-16x9">
                       <img
                         src={item.image_url || ""}
@@ -85,7 +85,10 @@ const HomePage = () => {
                       <h5 className="card-title line-clamp-2" style={{ WebkitLineClamp: 3 }}>
                         {item.title}
                       </h5>
-                      <p className="card-text text-muted small line-clamp-3 mb-3" style={{ WebkitLineClamp: 3 }}>
+                      <p
+                        className="card-text text-muted small line-clamp-3 mb-3"
+                        style={{ WebkitLineClamp: 3 }}
+                      >
                         {item.description || "No description available"}
                       </p>
                       <div className="mt-auto">
@@ -93,7 +96,9 @@ const HomePage = () => {
                           to={`/news/${item.title.replace(/\s+/g, "-").toLowerCase()}`}
                           state={item}
                         >
-                        <button className="  btn btn-outline-primary btn-sm w-100">Read More</button>
+                          <button className="btn btn-outline-primary btn-sm w-100">
+                            Read More
+                          </button>
                         </Link>
                       </div>
                     </div>
@@ -104,12 +109,15 @@ const HomePage = () => {
                     </div>
                   </div>
                 </div>
-                {/* Insert ad after every 3 news cards */}
+
+                {/* 🟡 Insert Ad Banner After Every 3 News Cards */}
                 {(idx + 1) % 3 === 0 && (
                   <div className="col-12" key={`ad-${idx}`}>
-                    <div className="my-3 text-center">
-                      {/* Example ad image, replace with your ad code or AdSense */}
-                       <Ads/>
+                    <div className="my-4 d-flex justify-content-center">
+                      <div style={{ width: "100%", maxWidth: "760px" }}>
+                        {/* Pass area if needed like area="homepage" */}
+                        <Ads area="homepage" />
+                      </div>
                     </div>
                   </div>
                 )}

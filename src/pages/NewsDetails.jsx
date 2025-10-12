@@ -132,10 +132,12 @@ const NewsDetails = () => {
               minHeight: "200px"
             }}
           >
-            <h6 className="text-center text-primary mb-3" style={{ fontWeight: 600 }}>
-              Sponsored (Right)
+            <h6 className="text-center text-primary mb-3 " style={{ fontWeight: 600 }}>
+               Sponsored (Right)
             </h6>
+             
             <SidebarAds area="right" />
+            <div className="vr"></div>
           </div>
         </aside>
       </div>
